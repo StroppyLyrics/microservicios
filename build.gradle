@@ -1,0 +1,77 @@
+plugins {
+	id 'war'
+    id "com.orctom.was" version "1.1"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava {
+   options.fork = true
+   options.forkOptions.executable = "C:\\Program Files\\Java\\jdk1.8.0_192\\bin\\javac.exe"   
+   options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+dependencies {    
+	compile('org.springframework:spring-webmvc:5.1.0.RELEASE')
+	compile('org.springframework:spring-jdbc:5.1.0.RELEASE')
+	compile('javax.servlet:javax.servlet-api:3.1.0')	
+	compile('com.fasterxml.jackson.core:jackson-databind:2.9.4')
+	compile('com.fasterxml.jackson.core:jackson-core:2.4.1')
+	compile('com.fasterxml.jackson.core:jackson-annotations:2.4.1')
+	compile(files("E:\\fuentes_java_microservicios\\WebContent\\WEB-INF\\lib\\aspose.pdf-19.9.jar"))		
+	
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.8'
+	compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+	compile group: 'org.json', name: 'json', version: '20180813'
+	// https://mvnrepository.com/artifact/com.sun.mail/javax.mail
+	compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.0'
+	// https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+	compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.3.1'
+	
+	// https://mvnrepository.com/artifact/org.dom4j/dom4j
+	compile group: 'org.dom4j', name: 'dom4j', version: '2.1.0'
+	// https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans
+	compile group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '2.6.0'		
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+	compile group: 'org.apache.poi', name: 'poi', version: '3.9'	
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.9'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas
+	compile group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '3.9'		
+	
+	// https://mvnrepository.com/artifact/com.documents4j/documents4j-api
+	compile group: 'com.documents4j', name: 'documents4j-api', version: '1.0.3'
+	// https://mvnrepository.com/artifact/com.documents4j/documents4j-util-conversion
+	compile group: 'com.documents4j', name: 'documents4j-util-conversion', version: '1.0.3'
+	// https://mvnrepository.com/artifact/com.documents4j/documents4j-transformer
+	compile group: 'com.documents4j', name: 'documents4j-transformer', version: '1.0.3'
+	// https://mvnrepository.com/artifact/com.documents4j/documents4j-util-all
+	compile group: 'com.documents4j', name: 'documents4j-util-all', version: '1.0.3'		
+	// https://mvnrepository.com/artifact/com.documents4j/documents4j-local
+	compile group: 'com.documents4j', name: 'documents4j-local', version: '1.0.3'	
+	// https://mvnrepository.com/artifact/com.documents4j/documents4j-transformer-msoffice-word
+	compile group: 'com.documents4j', name: 'documents4j-transformer-msoffice-word', version: '1.0.3'
+	
+	// https://mvnrepository.com/artifact/log4j/log4j
+	compile group: 'log4j', name: 'log4j', version: '1.2.16'	
+	
+	providedCompile('com.sap.cloud:neo-java-web-api:3.67.10')
+	
+	testCompile('org.springframework:spring-webmvc:5.1.0.RELEASE')
+    testCompile('junit:junit:4.12')    
+	testCompile('com.github.tomakehurst:wiremock:2.23.2')
+	// https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+	testCompile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '7.4.1.jre11'		
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+}
+
+war{
+	archiveName 'microservicios.war'
+}
